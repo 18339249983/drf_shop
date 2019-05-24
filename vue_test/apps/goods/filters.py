@@ -12,7 +12,7 @@ class GoodsFilter(django_filters.rest_framework.FilterSet):
     def top_category_filter(self,queryset, name, value):
         return queryset.filter(Q(category_id=value)|Q(category__parent_category_id=value)|Q(category__parent_category__parent_category_id=value))
 
-
     class Meta:
         model = Goods
-        fields = ['price_min', 'price_max', 'name']
+        # 是否热销直接将字段进行过滤
+        fields = ['price_min', 'price_max', 'is_hot']

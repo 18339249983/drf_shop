@@ -54,7 +54,7 @@ class SmsCodeViewset(CreateModelMixin, viewsets.GenericViewSet):
         serializer = self.get_serializer(data=request.data)
         # 参数异常直接会抛出异常
         serializer.is_valid(raise_exception=True)
-
+        # 取出serialize中定义的参数
         mobile = serializer.validated_data["mobile"]
 
         yun_pian = YunPian(APIKEY)
@@ -76,10 +76,10 @@ class SmsCodeViewset(CreateModelMixin, viewsets.GenericViewSet):
 
 class UserViewset(CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, viewsets.GenericViewSet):
     """
-    用户
+    用户注册功能
     """
     serializer_class = UserRegSerialize
-    queryset = User.objects.all()
+    # queryset = User.objects.all()
 
     def create(self, request, *args, **kwargs):
         """
@@ -89,6 +89,7 @@ class UserViewset(CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, viewse
         serializer.is_valid(raise_exception=True)
         user = self.perform_create(serializer)
 
+        # 使用jwt取出生成的token
         re_dict = serializer.data
         payload = jwt_payload_handler(user)
         # 可以自定义添加想要返回的任何参数

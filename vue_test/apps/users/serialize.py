@@ -59,7 +59,7 @@ class UserRegSerialize(serializers.ModelSerializer):
     )
 
     def create(self, validated_data):
-        # 创建密码加密
+        # 创建密码加密  validated_data传递的是序列化后的数据
         user = super(UserRegSerialize, self).create(validated_data=validated_data)
         user.set_password(validated_data["password"])
         user.save()
