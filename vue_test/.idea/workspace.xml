@@ -1,28 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a011d20-bd6f-4928-871d-03e7c6b10804" name="Default" comment="changeurl">
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/core/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/core/pagination.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/goods/migrations/0002_auto_20181130_1354.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/trade/serializer.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/user_operation/migrations/0003_auto_20181130_1354.py" />
+    <list default="true" id="8a011d20-bd6f-4928-871d-03e7c6b10804" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/filters.py" afterPath="$PROJECT_DIR$/apps/goods/filters.py" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/apps/goods/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/serializer.py" afterPath="$PROJECT_DIR$/apps/goods/serializer.py" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/views.py" afterPath="$PROJECT_DIR$/apps/goods/views.py" />
-      <change beforePath="$PROJECT_DIR$/apps/trade/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/apps/trade/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/apps/trade/migrations/0002_auto_20190521_1128.py" afterPath="$PROJECT_DIR$/apps/trade/migrations/0002_auto_20181122_1629.py" />
-      <change beforePath="$PROJECT_DIR$/apps/trade/views.py" afterPath="$PROJECT_DIR$/apps/trade/views.py" />
-      <change beforePath="$PROJECT_DIR$/apps/user_operation/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/apps/user_operation/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/apps/user_operation/migrations/0002_auto_20190521_1128.py" afterPath="$PROJECT_DIR$/apps/user_operation/migrations/0002_auto_20181122_1629.py" />
-      <change beforePath="$PROJECT_DIR$/apps/user_operation/serializer.py" afterPath="$PROJECT_DIR$/apps/user_operation/serializer.py" />
-      <change beforePath="$PROJECT_DIR$/apps/users/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/apps/users/migrations/0001_initial.py" />
-      <change beforePath="$PROJECT_DIR$/apps/users/migrations/0002_auto_20190522_1711.py" afterPath="$PROJECT_DIR$/apps/users/migrations/0002_auto_20181127_2342.py" />
-      <change beforePath="$PROJECT_DIR$/apps/users/serialize.py" afterPath="$PROJECT_DIR$/apps/users/serialize.py" />
-      <change beforePath="$PROJECT_DIR$/vue_test/settings.py" afterPath="$PROJECT_DIR$/vue_test/settings.py" />
-      <change beforePath="$PROJECT_DIR$/vue_test/urls.py" afterPath="$PROJECT_DIR$/vue_test/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -289,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559005013300</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ofter pay">
+      <created>1559293238838</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559293238838</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -297,11 +284,11 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3014827" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1630972" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1630972" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26523888" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13993949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13993949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -349,7 +336,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changeurl" />
-    <option name="LAST_COMMIT_MESSAGE" value="changeurl" />
+    <MESSAGE value="ofter pay" />
+    <option name="LAST_COMMIT_MESSAGE" value="ofter pay" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -557,6 +545,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
