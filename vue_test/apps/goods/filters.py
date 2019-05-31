@@ -16,3 +16,5 @@ class GoodsFilter(django_filters.rest_framework.FilterSet):
         model = Goods
         # 是否热销直接将字段进行过滤
         fields = ['price_min', 'price_max', 'is_hot']
+
+

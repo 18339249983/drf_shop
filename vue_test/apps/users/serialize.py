@@ -28,7 +28,7 @@ class SmsSerialize(serializers.Serializer):
             raise serializers.ValidationError("用户已经存在")
 
         # 验证手机号是否合法
-        if re.match(REGEX_MOBILE, mobile):
+        if not re.match(REGEX_MOBILE, mobile):
             raise serializers.ValidationError("手机号码非法")
 
         # 验证发送频率

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from rest_framework import mixins
 from rest_framework import generics
-from .serializer import GoodsSerializer, CategorySerializer
+from .serializer import GoodsSerializer, CategorySerializer, BannerSerializer, IndexCategorySerializer
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -34,12 +34,13 @@ from rest_framework import status
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # 商品分页
-class GoodsPagination(PageNumberPagination):
-    page_size = 10
-    # 前端动态传递参数控制当页显示条数
-    page_size_query_param = 'page_size'
-    page_query_param = "page"
-    max_page_size = 100
+# class GoodsPagination(PageNumberPagination):
+# class StandardResultsSetPagination(PageNumberPagination):
+#     page_size = 10
+#     # 前端动态传递参数控制当页显示条数
+#     page_size_query_param = 'page_size'
+#     page_query_param = "page"
+#     max_page_size = 100
 
 
 # class GoodsListView(generics.ListAPIView):
@@ -49,7 +50,7 @@ class GoodsListViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewset
     """
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
-    pagination_class = GoodsPagination
+    # pagination_class = GoodsPagination
     # authentication_classes = (TokenAuthentication,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter,)
     filter_class = GoodsFilter
@@ -71,3 +72,18 @@ class CategoryViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets
     queryset = GoodsCategory.objects.all()
     serializer_class = CategorySerializer
 
+
+class BannerViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
+    """
+    获取轮播图列表
+    """
+    serializer_class = BannerSerializer
+    queryset = Banner.objects.all().order_by("index")
+
+
+class IndexCategoryViewset(viewsets.ModelViewSet):
+    """
+    首页商品分类数据
+    """
+    queryset = GoodsCategory.objects.filter(is_tab=True)
+    serializer_class = IndexCategorySerializer

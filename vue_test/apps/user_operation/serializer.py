@@ -4,6 +4,10 @@ from rest_framework.validators import UniqueTogetherValidator
 
 from goods.serializer import GoodsSerializer
 
+# 手机号码正则表达式
+REGEX_MOBILE = "^1[358]\d{9}$|^147\d{8}$|^176\d{8}$"
+
+
 class UserFavDetailSerializer(serializers.ModelSerializer):
     goods = GoodsSerializer()
     class Meta:
@@ -49,6 +53,14 @@ class AddressSerializer(serializers.ModelSerializer):
     )
     add_time = serializers.DateTimeField(read_only=True)
     signer_mobile = serializers.CharField(max_length=11, min_length=11)
+
+    def validate_mobile(self, mobile):
+        # 手机号是否合法
+        import re
+        if not re.match(REGEX_MOBILE, mobile):
+            raise serializers.ValidationError("手机号非法")
+
+
     class Meta:
         model = UserAddress
         fields = ("id", "user", "province", "city", "district", "address", "signer_name", "add_time", "signer_mobile")
