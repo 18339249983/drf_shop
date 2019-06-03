@@ -5,6 +5,7 @@ from rest_framework import generics
 from .serializer import GoodsSerializer, CategorySerializer, BannerSerializer, IndexCategorySerializer
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 
 from rest_framework import filters
 from .filters import GoodsFilter
@@ -48,8 +49,11 @@ class GoodsListViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewset
     """
         商品列表展示, 分页、过滤、搜索、排序
     """
+    # 限速配置
+    throttle_classes = (UserRateThrottle, AnonRateThrottle)
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
+
     # pagination_class = GoodsPagination
     # authentication_classes = (TokenAuthentication,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter,)
@@ -57,6 +61,13 @@ class GoodsListViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewset
     search_fields = ('name', 'goods_brief', 'goods_desc')
     ordering_fields = ('sold_num', 'add_time')
 
+    def retrieve(self, request, *args, **kwargs):
+        # 商品点击数  重载该方法对数量进行更新
+        instance = self.get_object()
+        instance.click_num += 1
+        instance.save()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
     # def get_queryset(self):
     #     queryset = Goods.objects.all()
     #     price_min = self.request.query_params.get("price_min", 0)

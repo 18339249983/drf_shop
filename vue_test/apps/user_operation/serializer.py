@@ -60,7 +60,6 @@ class AddressSerializer(serializers.ModelSerializer):
         if not re.match(REGEX_MOBILE, mobile):
             raise serializers.ValidationError("手机号非法")
 
-
     class Meta:
         model = UserAddress
         fields = ("id", "user", "province", "city", "district", "address", "signer_name", "add_time", "signer_mobile")

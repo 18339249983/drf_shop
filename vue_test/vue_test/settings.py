@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'coreschema',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -141,9 +142,6 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-AUTHENTICATION_BACKENDS = (
-    'users.views.CustomBackend',
-)
 
 STATIC_URL = '/static/'
 
@@ -153,9 +151,37 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'apps.core.pagination.StandardResultsSetPagination'
+    'DEFAULT_PAGINATION_CLASS': 'apps.core.pagination.StandardResultsSetPagination',
+
+    # IP限速截留配置
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/day',
+        'user': '1000/day'
+    }
 }
 
 APIKEY = "***********************"
 
 APPEND_SLASH=False
+
+# 配置redis缓存，需要将本地的redis启动
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         }
+#     }
+# }
+
+
+# 第三方登陆
+
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)

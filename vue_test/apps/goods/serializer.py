@@ -45,7 +45,6 @@ class GoodsSerializer(serializers.ModelSerializer):
 
 
 class BannerSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Banner
         fields = "__all__"
@@ -55,6 +54,7 @@ class BrandSerializer(serializers.ModelSerializer):
     """
     宣传图标
     """
+
     class Meta:
         model = GoodsCategoryBrand
         fields = "__all__"
@@ -85,15 +85,16 @@ class IndexCategorySerializer(serializers.ModelSerializer):
         ad_goods = IndexAd.objects.filter(category_id=obj.id)
         if ad_goods:
             goods_ins = ad_goods[0].goods
-            goods_json = GoodsSerializer(goods_ins, many=False).data   # 一定要返回data
+            # 上下文中有request就会有完整的图片路由
+            goods_json = GoodsSerializer(goods_ins, many=False, context={'request': self.context['request']}).data  # 一定要返回data
         return goods_json
 
     def get_goods(self, obj):
-        all_goods = Goods.objects.filter(Q(category_id=obj.id)|Q(category__parent_category_id=obj.id)|Q(category__parent_category__parent_category_id=obj.id))
-        goods_serializer = GoodsSerializer(all_goods, many=True)
+        all_goods = Goods.objects.filter(Q(category_id=obj.id) | Q(category__parent_category_id=obj.id) | Q(
+            category__parent_category__parent_category_id=obj.id))
+        goods_serializer = GoodsSerializer(all_goods, many=True, context={'request': self.context['request']})
         return goods_serializer.data
 
     class Meta:
         model = GoodsCategory
         fields = "__all__"
-
